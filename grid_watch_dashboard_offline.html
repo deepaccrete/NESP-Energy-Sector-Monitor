@@ -3194,7 +3194,7 @@ const ppiGroup = L.geoJSON(DATA.ppiProjects, {
   pointToLayer: (f,latlng)=>{
     const p=f.properties;
     const hollow = p.ty === 'Greenfield';
-    const marker = L.marker(latlng,{icon:symbolIcon(COLORS.blue, GLYPH.bolt('#fff'), 21, {hollow:hollow, dashed:hollow})});
+    const marker = L.marker(latlng,{icon:symbolIcon(COLORS.blue, GLYPH.bolt(hollow ? COLORS.blue : '#fff'), 21, {hollow:hollow, dashed:hollow})});
     // quick hover label (disappears on mouseout)
     marker.bindTooltip(p.n||'PPI Project', { direction:'top', offset:[0,-12], opacity:.95, className:'rich-tip-mini' });
     // full detail card on click (stays open until dismissed)
